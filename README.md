@@ -6,34 +6,34 @@ Built on &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 
-# OpenAlgoNFT
+# MediaCV-NFT
 
-OpenAlgoNFT is an open-source cloud-native platform for building an NFT Marketplace on top of Algorand blockchain. 
+MediaCV-NFT is an open-source cloud-native platform for building an NFT Marketplace on top of Algorand blockchain. 
 
 Learn more on our official [case study](https://staging.ulam.io/case-studies/whitelabel-nft-marketplace-by-ulam-labs/). 
 
-# Getting started with OpenAlgoNFT
+# Getting started with MediaCV-NFT
 
 There are three components involved in the platform. The frontend, the backend, and the smart contracts. The backend and frontend parts of the application have to be deployed to a server. Smart contracts are automatically deployed by the platform when new NFTs are created.
 
 Follow the instructions below to prepare your development environment or to deploy the application to a public server.
 
-# How to deploy to Google Cloud Platform
+# How to deploy to Microsoft Azure
 
-To deploy OpenAlgoNFT we'll need to create a database, a Kubernetes cluster on the Google Cloud Platform, and install several associated tools. This guide assumes that the user has at least some proficiency in using the Google Cloud Platform.
+To deploy MediaCV-NFT we'll need to create a database, a Kubernetes cluster on the Microsoft Azure, and install several associated tools. This guide assumes that the user has at least some proficiency in using the Microsoft Azure.
 
 ### Prerequisites
 
-- [Google Cloud Platform SDK](https://cloud.google.com/sdk/gcloud)
+- [Microsoft Azure SDK](https://github.com/Azure/azure-sdk)
 - [Docker](https://www.docker.com/)
 - [Kubernetes Tools](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/)
-- SQL Database on Google Cloud Platform
-- Container Registry on Google Cloud Platform
+- SQL Database on Microsoft Azure
+- Container Registry on Microsoft Azure
 
 ### Creating a Kubernetes cluster
 
-1. Initialize your Google Cloud Platform SDK by running `gcloud init` and following the instructions
+1. Initialize your Microsoft Azure SDK by running `azure init` and following the instructions
 1. Go to [Kubernetes Engine](https://console.cloud.google.com/kubernetes/)
 2. Click on `Create`
 3. Configure your cluster - for experimenting, we suggest using the `Standard` cluster with the pre-filled configuration and reduced number of nodes (depending on your budget).
@@ -56,7 +56,7 @@ The `backend` folder contains `helm` folder that contains Helm chart. Helm chart
 
 #### Deployment
 
-1. Connect your Docker to your Container Registry on Google Cloud Platform - https://cloud.google.com/container-registry/docs/advanced-authentication
+1. Connect your Docker to your Container Registry on Microsoft Azure- https://cloud.google.com/container-registry/docs/advanced-authentication
 1. Create Kubernetes namespace using `kubectl create namespace <insert-namespace-name-here>`
 2. Switch to that namespace using `kubectl config set-context --current --namespace=<insert-namespace-name-here>`
 3. Run `make image && make push && make deploy`
@@ -100,7 +100,7 @@ Manual installation:
  1. Download, install and run [RabbitMQ](https://www.rabbitmq.com/download.html)
  2. By default, RabbitMQ will listen on port 5672 on all available interfaces. Refer to https://www.rabbitmq.com/networking.html if you want to customize your configuration.
 
-By default, OpenNFT is configured to connect to RabbitMQ hosted on localhost at port 5672. If you want to change it you can set the `CELERY_BROKER_URL` variable in your command-line environment or inside the `backend/settings_dev.py` file. 
+By default, MediaCV-NFT is configured to connect to RabbitMQ hosted on localhost at port 5672. If you want to change it you can set the `CELERY_BROKER_URL` variable in your command-line environment or inside the `backend/settings_dev.py` file. 
 
 Example value of `CELERY_BROKER_URL`:
 `amqp://guest:guest@localhost:5672//`
